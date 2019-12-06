@@ -1,0 +1,48 @@
+<?php include_once __DIR__ . '/./../layout/header.phtml'; ?>
+
+<?php include_once __DIR__ . '/./../layout/top-header.phtml' ?>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <?php include_once __DIR__ . '/./../layout/sidebar.phtml' ?>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Change Password</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <a href="/followup/add-new-client" class="btn btn-sm btn-outline-secondary">Add New Client</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <?php if($error['error']) {
+                        echo sprintf('<div class="alert alert-danger" role="alert">%s</div>', $error['message']);
+                    } ?>
+                    <?php if($success['success']) {
+                        echo sprintf('<div class="alert alert-success" role="alert">%s</div>', $success['message']);
+                    } ?>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="comment">New Password</label>
+                            <input class="form-control" type="password" id="newPassword" name="newPassword" placeholder="Type your new password here.." />
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Confirm New Password</label>
+                            <input class="form-control" type="password" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm your new password here.." />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<?php include_once '/./../layout/script.phtml' ?>
+
+<?php include_once __DIR__ . '/./../layout/footer.phtml'; ?>

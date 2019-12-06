@@ -1,0 +1,87 @@
+<?php include_once __DIR__ . '/./../layout/header.phtml'; ?>
+
+<?php include_once __DIR__ . '/./../layout/top-header.phtml' ?>
+
+<div class="container-fluid">
+    <div class="row">
+        <?php include_once __DIR__ . '/./../layout/sidebar.phtml' ?>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <h1 style="float:left" >search result</h1>
+            <div style="float:right">
+                   <?php include_once __DIR__ . '/./../layout/minisearch.phtml' ?>
+             
+                </div>
+          
+            <?php
+                $statusLabel['0'] = '<span class="badge badge-dark">0</span>';
+                $statusLabel['200'] = '<span class="badge badge-success">200</span>';
+                $statusLabel['403'] = '<span class="badge badge-danger">403</span>';
+                $statusLabel['500'] = '<span class="badge badge-danger">500</span>';
+                $statusLabel['404'] = '<span class="badge badge-info">404</span>';
+            ?>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Started At</th>
+                            <th>Ended At</th>
+                            <th>Method</th>
+                            <th>Url</th>
+                            <th>Status</th>
+                            <th>Source</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($searchResults as $singleSearch) { ?>
+                        <tr>
+                            <td><?php echo $singleSearch['id'] ?></td>
+                            <td><?php echo date('dS M y  -  H:i:s A', strtotime($singleSearch['createdAt'])) ?></td>
+                            <td><?php echo date('dS M y  -  H:i:s A', strtotime($singleSearch['endedAt'])) ?></td>
+                            <td><?php echo $singleSearch['requestMethod'] ?></td>
+                            <td><?php echo $singleSearch['requestUrl'] ?></td>
+                            <td><?php echo isset($statusLabel[$singleSearch['status']]) ? $statusLabel[$singleSearch['status']] : $singleSearch['status'] ?></td>
+                            <td><?php echo $singleSearch['source'] ?></td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="/request/view/<?php echo $singleSearch['id'] ?>">View</a>
+                            </td>
+                        </tr>  
+                        <?php } ?>
+                    </tbody>        
+                </table>
+            </div>
+            
+            <div class="pagination">
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group mr-2" role="group">
+                    <?php
+                        $lastPage = ceil($total/$limit);                    
+                        $hasPaginationGap = $lastPage >= 10;
+                        $paginationGap = '';
+                        if($page != 1) {
+                            echo sprintf('<a href="/search?query='.$query.'&statusValue='.$statusValue.'&page=%d" class="btn btn-secondary">Prev</a>', $page - 1);
+                        }
+                        for($i = 1; $i <= $lastPage; $i++) {
+                            if($hasPaginationGap && $i > 3 && $i <= $lastPage - 3) {
+                                $paginationGap = ' </div><div class="btn-group mr-2" role="group"><a href="#" class="btn btn-secondary">...</a></div><div class="btn-group" role="group"> ';
+                                continue;
+                            }
+                            echo $paginationGap. sprintf('<a href="/search?query='.$query.'&statusValue='.$statusValue.'&page=%d" class="btn btn-secondary">%d</a>', $i, $i);
+                            $paginationGap = '';
+                        }
+                        if($page != $lastPage) {
+                            echo sprintf('<a href="/search?query='.$query.'&statusValue='.$statusValue.'&page=%d" class="btn btn-secondary">Next</a>', $page + 1);
+                        }
+                    ?>
+                    </div>   
+                    <leable>total</leable> <?php echo $total ?>
+                </div>
+            </div>
+   
+        </main>
+    </div>           
+</div>   
+
+<?php include_once __DIR__ . '/./../layout/footer.phtml'; ?>

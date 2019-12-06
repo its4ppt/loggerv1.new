@@ -1,0 +1,35 @@
+<div class="btn-toolbar mb-2 mb-md-0">
+    <form action="/date" method="get" id="date-form">
+        <table>
+           <thead>
+              <tr>
+                 <th class="btn-sm btn-outline-secondary">Date</th>
+                    <th> <input type="date" id="Mydate"  name="date" value="<?php echo $date;?>"></th>
+                            <script>
+                                function myFunction() {
+                                  var x = document.getElementById("myDate").value;
+                                  document.getElementById("date").innerHTML = x;
+                            </script>  
+                    <th class="btn-sm btn-outline-secondary">Before</th>
+                    <th><input type="time" id="getTime" name="getTime" value="<?php echo $getTime;?>"></th>
+                    <th class="btn-sm btn-outline-secondary">status</th>
+                    <th>  <select name="statusValue" style="letter-spacing: 0.128em;border-right-style: solid;margin-right: 5px;border-top-style: solid;border-top-width: 2px;border-left-style: solid;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;border-bottom-style: solid;padding-left: 5px;padding-right: 35px;font-weight: 700;line-height: 17px;font-size: 12px;">
+                            <option value=">=0">select status code</option>
+                <option value="=200">200</option>
+                <option value="=302">302</option>
+                <option value="=400">400</option>
+                <option value="=403">403</option>
+                <option value="=404">404</option>
+                <option value="=405">405</option>
+                <option value="=429">429</option>
+                <option value="=501">501</option>
+                <option value="=503">503</option>
+                <option value=">=400">>=400</option>
+                            </select></th>
+                            <th><button onclick="myFunction()" class="btn btn-sm btn-outline-secondary">search</button></th>
+                </tr>
+            </thead>
+        </table>
+    </form>
+               
+            </div> 

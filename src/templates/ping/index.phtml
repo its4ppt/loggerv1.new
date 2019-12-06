@@ -1,0 +1,138 @@
+<?php include_once __DIR__ . '/./../layout/header.phtml'; ?>
+
+<?php include_once __DIR__ . '/./../layout/top-header.phtml' ?>
+
+<div class="container-fluid">
+    <div class="row">
+        <?php include_once __DIR__ . '/./../layout/sidebar.phtml' ?>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          
+             
+            <table class="table table-striped table-sm">  
+                  <thead>
+                      <tr>
+                          <th>adress</th>
+                          <th>status</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>api.giftcardsindia.in[13.228.181.70]</td>
+                          <td>
+                            <?php
+                                $domain = 'api.giftcardsindia.in';
+                                if(gethostbyname($domain) != $domain )
+                                {
+                                echo "Up";
+                                }
+                                else
+                                {
+                                echo "Down";
+                                }
+                                ?></td>
+                      </tr>
+                      <tr>
+                          <td> interface.giftcardsindia.in[52.74.8.48] </td>
+                          <td>
+                              <?php
+                               $domain = 'interface.giftcardsindia.in';
+                                if(gethostbyname($domain) != $domain )
+                                {
+                                echo "Up";
+                                }
+                                else
+                                {
+                                echo "Down";
+                                }
+                                ?>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td> sandbox.giftcardsindia.in[52.74.205.120] </td>
+                          <td>
+                              <?php
+                                $domain = 'sandbox.giftcardsindia.in';
+                                if(gethostbyname($domain) != $domain )
+                                {
+                                echo "Up";
+                                }
+                                else
+                                {
+                                echo "Down";
+                                }
+                                ?>
+                          </td>
+                      </tr>
+                <tr>
+                          <td> sandbox.api.giftcardsindia.in </td>
+                          <td>
+                              <?php
+                               $domain = 'sandbox.api.giftcardsindia.in';
+                                if(gethostbyname($domain) != $domain )
+                                {
+                                echo "Up";
+                                }
+                                else
+                                {
+                                echo "Down";
+                                }
+                                ?>
+                          </td>
+                      </tr>
+                <tr>
+                          <td> gci.network.co[91.195.240.126] </td>
+                          <td>
+                              <?php
+                                $domain = 'gci.network.co';
+                                if(gethostbyname($domain) != $domain )
+                                {
+                                echo "Up";
+                                }
+                                else
+                                {
+                                echo "Down";
+                                }
+                                ?>
+                          </td>
+                      </tr>
+                <tr>
+                          <td> api.prezz.in [52.74.53.242]</td>
+                          <td>
+                              <?php
+                              $domain = 'api.prezz.in';
+                                if(gethostbyname($domain) != $domain )
+                                {
+                                echo "Up";
+                                }
+                                else
+                                {
+                                echo "Down";
+                                }
+                                ?>
+                          </td>
+                      </tr>
+                <tr>
+                          <td> db.giftcardsindia.in </td>
+                          <td>
+                              <?php
+                               $domain = 'interface.giftcardsindia.in';
+                                if(gethostbyname($domain) != $domain )
+                                {
+                                echo "Up";
+                                }
+                                else
+                                {
+                                echo "Down";
+                                }
+                                ?>
+                          </td>
+                      </tr>
+                      
+                  </tbody>
+               </table> 
+        </main>
+    </div>
+</div>
+
+<?php include_once __DIR__ . '/./../layout/footer.phtml'; ?>

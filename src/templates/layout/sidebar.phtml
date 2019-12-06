@@ -1,0 +1,30 @@
+<div class="col-md-2 d-none d-md-block bg-light sidebar">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link <?php echo $currentPage === 'dashboard' ? 'active' : '' ?>" href="/">
+                <span data-feather="home"></span>
+                Dashboard <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item <?php echo $currentPage === 'request' ? 'active' : '' ?>">
+            <a class="nav-link" href="/request">
+                <span data-feather="file"></span>
+                Requests
+            </a>
+        </li>
+        <li class="nav-item <?php echo $currentPage === 'ping' ? 'active' : '' ?>"> 
+            <a class="nav-link" href="/ping">
+                <span data-feather="file"></span>
+                ping
+            </a>
+        </li>
+        <li class="nav-item <?php echo $currentPage === 'change-password' ? 'active' : '' ?>">
+            <a class="nav-link" href="/change-password">
+                <span data-feather="file"></span>
+                Change Password
+            </a>
+        </li>
+        
+                        
+    </ul>
+</div>

@@ -1,0 +1,43 @@
+<?php include_once __DIR__ . '/./../layout/header.phtml'; ?>
+
+<style type="text/css">
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
+</style>
+
+<div style="margin: 0 auto; text-align: center;">
+    <form class="form-signin" method="post" action="/">
+        <img class="mb-4" src="/images/gci-network.png" alt="GCI Network" />
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <?php
+            if($error) {
+                echo sprintf('<div class="alert alert-danger" role="alert">%s</div>', $message);
+            }
+        ?>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email" value="<?php echo $email ?>" />
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password" />
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me" /> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a href="/signup" class="btn btn-lg btn-default btn-block">Sign up</a>
+        <p class="mt-5 mb-3 text-muted">&copy; 2010 - <?php echo date('Y') ?></p>
+    </form>
+</div>
+<?php include_once __DIR__ . '/./../layout/footer.phtml'; ?>

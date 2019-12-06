@@ -1,0 +1,28 @@
+<form action="/search" method="get" id="search-form">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Swych GCI</a>
+        <input class="form-control form-control-dark w-80" type="text" placeholder="Search for...." name="query" value="<?php echo $query;?>"
+               aria-label="Search"/>
+        
+<select name="statusValue" style="letter-spacing: 0.128em;border-right-style: solid;margin-right: 5px;border-top-style: solid;border-top-width: 10px;border-left-style: solid;border-right-width: 0px;border-bottom-width: 10px;border-bottom-style: solid;padding-right: 50px;font-weight: 700;line-height: 17px;font-size: 12px;margin-left: 5px;border-left-width: 0px;">
+    <option value=">=0">select status code</option>
+                <option value="=200">200</option>
+                <option value="=302">302</option>
+                <option value="=400">400</option>
+                <option value="=403">403</option>
+                <option value="=404">404</option>
+                <option value="=405">405</option>
+                <option value="=429">429</option>
+                <option value="=501">501</option>
+                <option value="=503">503</option>
+                <option value=">=400">>=400</option>                
+            </select>
+            <button type="submit" class="btn btn-primary">search</button>
+            
+            <ul class="navbar-nav px-4">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/logout">Logout <?php echo $userFirstName ?></a>
+            </li>
+        </ul>
+    </nav>
+</form>
